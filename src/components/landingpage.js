@@ -1,6 +1,11 @@
 import LeafletMap from "./LaefletMap";
 import React, { useState } from 'react';
 
+
+
+
+
+
 export default function LandingPage(){
     const [isModalOpen, setIsModalOpen] = useState(false);
 
