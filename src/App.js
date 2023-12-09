@@ -4,10 +4,10 @@ import Navbar from './components/navbar';
 
 function App() {
   return (
-    <>
+    <div id="app-container">
     <Navbar />
     <LandingPage />
-    </>
+    </div>
   );
 }
 
