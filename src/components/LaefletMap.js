@@ -26,9 +26,14 @@ const LeafletMap = () => {
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     });
     googleStreets.addTo(map);
-
+    const customIcon = L.icon({
+        iconUrl: './marker.png', // Adjust the path to your marker image
+        iconSize: [40, 40], // Set the size of your marker icon
+        iconAnchor: [-0.303099, 36.080025], // Set the anchor point of your marker icon
+       // Set the anchor point for popups (if needed)
+      });
     // Marker
-    const marker = L.marker([-0.303099, 36.080025]);
+    const marker = L.marker([-0.303099, 36.080025], { icon: customIcon });
     marker.addTo(map).bindPopup('Destination').openPopup();
 
     // GeoJSON layer
