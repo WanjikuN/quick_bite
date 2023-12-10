@@ -1,11 +1,6 @@
 import LeafletMap from "./LaefletMap";
 import React, { useState } from 'react';
 
-
-
-
-
-
 export default function LandingPage(){
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -19,14 +14,13 @@ export default function LandingPage(){
   
     return(
         <div id="landing-page">
-                <div id="background">
+            {/* <img src="./pizza1.png" class="pizza1" alt="pizza"/> */}
+            <img src="./pizza2.png" class="pizza2" alt="pizza"/>
                 
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                </div>
             <div className="mid-content">
-                <h3>The quickest way to find the perfect bite</h3>
-                <button onClick={openModal}>Open Map</button>  
+                <h1 className="typing-animation">The quickest way to find the perfect bite.</h1>
+                <div class='pin'></div>
+                <button onClick={openModal}>Search Delivery address</button>  
             </div>
             {isModalOpen && (
         <div className="modal-overlay">
