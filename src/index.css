@@ -1,0 +1,253 @@
+body {
+  margin: 0;
+  background-color: #1a1a1a;
+  
+  color: #fff;
+  /* overflow-x: hidden; */
+  padding: 0;
+  overflow: hidden;
+}
+
+#app-container {
+  border: 1px solid #333;
+  height: 100vh;
+  width: 100%;
+}
+
+#navbar {
+  background-color: #3498db; /* Updated color */
+  border-radius: 10px 10px 0 0;
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around; /* Spread buttons horizontally */
+  align-items: center;
+  height: 17%;
+  
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #2c3e50; /* Darker color for contrast */
+  border: 3px solid #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #00ff00;
+  color:#1a1a1a;
+}
+
+#landing-page {
+  background: linear-gradient(to right, rgba(51, 51, 51, 0.8), rgba(26, 26, 26, 0.8)), url("./doodle.png");
+  border: 1px solid #333;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backface-visibility: 0;
+}
+
+.mid-content {
+  text-align: center;
+  padding: 20px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mid-content h1 {
+  color: #fff;
+  font-size: 2.5em;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .mid-content h1 {
+    font-size: 24px;
+  }
+  
+  #navbar {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    align-items: center;
+  }
+
+  .nav-buttons button {
+    margin: 5px;
+  }
+}
+
+.typing-animation {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 5s steps(40, end) infinite, blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 25%;
+  }
+  50% {
+    width: 50%;
+  }
+  75% {
+    width: 75%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #00ff00;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #3498db; /* Darker color for contrast */
+  border: 3px solid #333;
+  color: white;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+  background: #ddd;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  float: right;
+}
+
+.close-button:hover {
+  background: #ccc;
+}
+
+.pizza1,
+.pizza2 {
+  position: absolute;
+  bottom: 10px;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+
+.pizza2 {
+  right: 0%;
+  bottom: 0%;
+  height: 50%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  #navbar {
+    padding: 10px;
+  }
+
+  .nav-buttons button {
+    font-size: 14px;
+    margin: 5px;
+  }
+
+  .mid-content {
+    left: 5%;
+  }
+
+  .pizza1 {
+    display: none;
+  }
+
+  .pizza2 {
+    height: 250px;
+    right: 10%;
+  }
+}
+
+.pin {
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50% 50% 50% 0;
+  background: hsl(253, 10%, 56%);
+  /* position: absolute; */
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -20px;
+  animation: pulsate 1s ease-out infinite; /* Apply pulsate animation */
+}
+
+
+
+
+
+@keyframes pulsate {
+  0% {
+    transform:  rotate(-45deg);
+    opacity: 0.0;
+  }
+  50% {
+    transform:  rotate(-45deg);
+    opacity: 1.0;
+  }
+  100% {
+    transform:  rotate(-45deg);
+    
+    opacity: 0;
+  }
+}
