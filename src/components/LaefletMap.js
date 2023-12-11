@@ -12,7 +12,7 @@ const LeafletMap = () => {
   useEffect(() => {
     // Map initialization
     const map = L.map('map').setView([-0.303099, 36.080025], 11);
-    mapRef.current = map; // Save map instance to the ref
+    mapRef.current = map; 
 
     // OSM layer
     const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -27,16 +27,16 @@ const LeafletMap = () => {
     });
     googleStreets.addTo(map);
     const customIcon = L.icon({
-        iconUrl: './marker.png', // Adjust the path to your marker image
-        iconSize: [40, 40], // Set the size of your marker icon
-        iconAnchor: [-0.303099, 36.080025], // Set the anchor point of your marker icon
-       // Set the anchor point for popups (if needed)
+        iconUrl: './marker.png', 
+        iconSize: [40, 40], 
+        iconAnchor: [-0.303099, 36.080025], 
+       
       });
+
     // Marker
     const marker = L.marker([-0.303099, 36.080025], { icon: customIcon });
     marker.addTo(map).bindPopup('Quick Bite Central').openPopup();
     
-
     // GeoJSON layer
     L.geoJSON(point, {
       style: function (feature) {
@@ -54,7 +54,7 @@ const LeafletMap = () => {
         return L.marker(latlng, { icon: customIcon });
       },
       onEachFeature: function (feature, layer) {
-        // Example: Adding a popup to each GeoJSON feature
+        // add a pop up to each Geojson layer
         const popupContent = `<p>Quick Bite</p>`;
         layer.bindPopup(popupContent);
       },
@@ -63,7 +63,7 @@ const LeafletMap = () => {
 
     // Geocoder control
     const geocoder = L.Control.geocoder().addTo(map);
-    geocoderRef.current = geocoder; // Save geocoder control instance to the ref
+    geocoderRef.current = geocoder; 
 
     // Handle geocoding results
     geocoder.on('markgeocode', function (event) {
@@ -76,26 +76,14 @@ const LeafletMap = () => {
       console.log(`Longitude: ${center.lng}`);
     });
 
-    // Cleanup function
+    
     return () => {
-      map.remove(); // This will remove the map when the component is unmounted
+        // remove the map when the component is unmounted
+      map.remove(); 
     };
-  }, []); // Empty dependency array ensures the effect runs only once during mount
+  }, []);
 
-  const handleSearch = () => {
-    const locationString = document.getElementById('searchInput').value;
-
-    // Use the geocode method to search for the location
-    geocoderRef.current.geocode(locationString, (results) => {
-        if (results.length > 0) {
-          const location = results[0].center;
-          mapRef.current.setView(location, mapRef.current.getZoom());
-          console.log('Location coordinates:', location);
-        } else {
-          console.error('Location not found');
-        }
-      });
-  };
+  
 
   return (
     <div>
