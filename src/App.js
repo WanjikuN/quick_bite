@@ -3,12 +3,16 @@ import LandingPage from './components/landingpage';
 import Navbar from './components/navbar';
 import { Routes, Route } from 'react-router-dom';
 import Authentication from './components/Authentication';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 function App() {
   const [type, setType] = useState(false);
   const setTypeCallback = (newType) => {
-    setType(newType); // Update the type state
+    setType(newType); 
   };
+  useEffect(() => {
+    document.title = 'Quick Bite';
+  }, []);
+ 
   return (
     <div id="app-container">
       <Navbar setType={setTypeCallback}/>
