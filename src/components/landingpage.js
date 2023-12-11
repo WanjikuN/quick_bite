@@ -14,7 +14,6 @@ export default function LandingPage(){
   
     return(
         <div id="landing-page">
-            {/* <img src="./pizza1.png" class="pizza1" alt="pizza"/> */}
             <img src="./pizza2.png" class="pizza2" alt="pizza"/>
                 
             <div className="mid-content">
@@ -23,16 +22,16 @@ export default function LandingPage(){
                 <button onClick={openModal}>Search Delivery address</button>  
             </div>
             {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal">
-            {/* Close button */}
-            <button className="close-button" onClick={closeModal}>
-              Close Map
-            </button>
-            <LeafletMap />
-            </div>
-        </div>
-      )}
+                <div className="modal-overlay">
+                <div className="modal">
+                    {/* Close button */}
+                    <button className="close-button" onClick={closeModal}>
+                    Close Map
+                    </button>
+                    <LeafletMap />
+                    </div>
+                </div>
+                )}
         </div> 
     )
 }
