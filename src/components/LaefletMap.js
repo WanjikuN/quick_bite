@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 import 'leaflet-control-geocoder';
 import L from 'leaflet';
-import point from './point.json';
+import point from './point';
 
 const LeafletMap = () => {
   const mapRef = useRef(null);
@@ -34,17 +34,31 @@ const LeafletMap = () => {
       });
     // Marker
     const marker = L.marker([-0.303099, 36.080025], { icon: customIcon });
-    marker.addTo(map).bindPopup('Destination').openPopup();
+    marker.addTo(map).bindPopup('Quick Bite Central').openPopup();
+    
 
     // GeoJSON layer
     L.geoJSON(point, {
       style: function (feature) {
         return { color: feature.properties.color };
       },
+      pointToLayer: function (feature, latlng) {
+        
+        const customIcon = L.icon({
+          iconUrl: feature.properties.iconUrl || './marker.png', 
+          iconSize: [40, 40],
+          iconAnchor: [20, 40],
+        });
+
+        
+        return L.marker(latlng, { icon: customIcon });
+      },
+      onEachFeature: function (feature, layer) {
+        // Example: Adding a popup to each GeoJSON feature
+        const popupContent = `<p>Quick Bite</p>`;
+        layer.bindPopup(popupContent);
+      },
     })
-      .bindPopup(function (layer) {
-        return layer.feature.properties.description;
-      })
       .addTo(map);
 
     // Geocoder control
