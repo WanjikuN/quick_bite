@@ -61,7 +61,7 @@ body {
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  backface-visibility: 0;
+  
 }
 
 .mid-content {
@@ -185,11 +185,11 @@ button:hover {
   background: #ccc;
 }
 
-.pizza1,
+
 .pizza2 {
   position: absolute;
   bottom: 10px;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
   margin: 0;
 }
 
